@@ -1,0 +1,73 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-title>
+			About
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="wrapper">
+		<header class="header">
+			<img
+            src="https://raw.githubusercontent.com/TinkoffCreditSystems/taiga-ui/1c73e97155678e2616726866484db8ccad4cdb4f/projects/demo/src/assets/images/taiga.svg"
+            alt="taiga ui logo"
+            width="96"
+        />
+
+			<a tuiLink class="taiga-link" target="_blank" href="https://taiga-ui.dev">taiga-ui.dev</a>
+
+			<iframe class="tui-space_bottom-4"
+				src="https://ghbtns.com/github-btn.html?user=TinkoffCreditSystems&repo=taiga-ui&type=star&count=true&size=large"
+				frameborder="0" scrolling="0" width="150" height="30" title="GitHub"></iframe>
+
+			<p class="tui-text_body-xl">
+				<strong>Taiga UI</strong> is fully-treeshakable Angular UI Kit
+				consisting of multiple base libraries and several add-ons
+			</p>
+		</header>
+
+		<tui-island class="tui-space_all-6" [hoverable]="true">
+			<h3 class="tui-island__title">🧩 Modular and fully-treeshakable</h3>
+			<p class="tui-island__paragraph">
+				We harnessed the power of Secondary Entry Points mechanism. You can
+				import even just one entity from our library and be sure that there
+				is no redundant code in your bundle
+			</p>
+		</tui-island>
+
+		<tui-island class="tui-space_all-6" [hoverable]="true">
+			<h3 class="tui-island__title">🧙 Agnostic</h3>
+			<p class="tui-island__paragraph">
+				Our components are very flexible and are ready for any usecase. But
+				we take care of basic UX aspects to let you focus on your project
+				features
+			</p>
+		</tui-island>
+
+		<tui-island class="tui-space_all-6" [hoverable]="true">
+			<h3 class="tui-island__title">🦋 Customizable</h3>
+			<p class="tui-island__paragraph">
+				We use CSS custom properties for all our styling and provide easy
+				methods to customize all UI components
+			</p>
+		</tui-island>
+
+		<tui-island class="tui-space_all-6" [hoverable]="true">
+			<h3 class="tui-island__title">🛠 Well engineered</h3>
+			<p class="tui-island__paragraph">
+				We are not afraid to use DI to the max. All our components use OnPush and the whole
+				project is developed with
+				<code>strict</code> TypeScript mode
+			</p>
+		</tui-island>
+
+		<tui-island class="tui-space_all-6 tui-space_bottom-6" [hoverable]="true">
+			<h3 class="tui-island__title">📦 It's big!</h3>
+			<p class="tui-island__paragraph">
+				We have 130+ components, 100+ directives, dozens of tokens, utils
+				and tools. And it isn't over yet 🚀
+			</p>
+		</tui-island>
+	</div>
+</ion-content>

@@ -1,0 +1,123 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="wrapper">
+    <tui-multi-select
+      [formControl]="control"
+      [expandable]="false"
+      [tuiTextfieldLabelOutside]="true"
+      [(search)]="search"
+      tuiHintContent="Customizable for any use case"
+    >
+      Multiselect
+      <tui-data-list-wrapper
+        *tuiDataList
+        tuiMultiSelectGroup
+        [items]="filter(search)"
+      ></tui-data-list-wrapper>
+    </tui-multi-select>
+
+    <section tuiGroup class="buttons tui-space_top-6">
+      <button
+        tuiButton
+        appearance="secondary"
+        size="m"
+        tuiHint="A modal popup"
+        (click)="showDialog(dialog)"
+      >
+        Show dialog
+      </button>
+      <ng-template #dialog>
+        <p class="dialog">
+          <tui-avatar
+            avatarUrl="https://pbs.twimg.com/profile_images/1299418465980354562/y6NWXAQ__400x400.jpg"
+            size="l"
+            class="tui-space_right-4"
+            [rounded]="true"
+          ></tui-avatar>
+          Thanks for checking Taiga UI out!
+        </p>
+      </ng-template>
+
+      <button tuiButton size="m" appearance="flat" (click)="showNotification()">
+        Show notification
+      </button>
+    </section>
+
+    <tui-input-date-time class="tui-space_top-6">
+      Choose date and time
+    </tui-input-date-time>
+
+    <tui-tabs
+      class="tui-space_top-6 tui-space_bottom-2"
+      [(activeItemIndex)]="activeTab"
+    >
+      <button tuiTab>Line Chart</button>
+      <button tuiTab>Bar Chart</button>
+      <button tuiTab>Ring Chart</button>
+    </tui-tabs>
+
+    <ng-container [ngSwitch]="activeTab">
+      <ng-template [ngSwitchCase]="0">
+        <tui-axes
+          class="axes"
+          [verticalLines]="4"
+          [horizontalLines]="2"
+          [tuiLineChartHint]="hint"
+        >
+          <tui-line-chart
+            *ngFor="let value of values"
+            class="chart"
+            [x]="0"
+            [y]="0"
+            [width]="400"
+            [height]="200"
+            [value]="value"
+          ></tui-line-chart>
+        </tui-axes>
+      </ng-template>
+      <ng-template [ngSwitchCase]="1">
+        <tui-axes class="axes" [axisXLabels]="labelsX" [axisYLabels]="labelsY">
+          <tui-bar-chart [max]="10000" [value]="value"></tui-bar-chart>
+        </tui-axes>
+      </ng-template>
+      <ng-template [ngSwitchCase]="2">
+        <tui-ring-chart
+          [value]="ringValue"
+          [content]="content"
+        ></tui-ring-chart>
+
+        <ng-template #content let-index>
+          <tui-money
+            currency="USD"
+            [singleColor]="true"
+            [value]="getValue(index)"
+          ></tui-money>
+          <div>{{ getLabel(index) }}</div>
+        </ng-template>
+      </ng-template>
+    </ng-container>
+
+    <h1 class="tui-space_top-6">Quick links</h1>
+
+    <section class="links">
+      <a tuiLink target="_blank" href="https://taiga-ui.dev"> Website </a>
+      •
+      <a tuiLink target="_blank" href="https://taiga-ui.dev/getting-started">
+        Documentation
+      </a>
+      •
+      <a
+        tuiLink
+        target="_blank"
+        href="https://github.com/TinkoffCreditSystems/taiga-ui#core-team"
+      >
+        Core team
+      </a>
+    </section>
+  </div>
+</ion-content>
