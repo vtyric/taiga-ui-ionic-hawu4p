@@ -1,0 +1,7 @@
+{
+  "name": "sber-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
